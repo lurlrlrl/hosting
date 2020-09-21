@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Vostok.Hosting.Abstractions;
 using Vostok.Hosting.Models;
+using Vostok.Hosting.Setup;
 
 namespace Vostok.Hosting.Snippet
 {
     public class VostokMultiHost
     {
-        public VostokMultiHost(Action<IVostokCommonHostingEnvironmentBuilder> builder, params VostokMultiHostSettings[] apps)
+        public VostokMultiHost(Action<IVostokHostingEnvironmentBuilder> builder, params VostokMultiHostSettings[] apps)
         {
             throw new NotImplementedException();
         }
@@ -23,23 +23,5 @@ namespace Vostok.Hosting.Snippet
         }
 
         public VostokHost GetApp(string appName) => throw new NotImplementedException();
-
-        public VostokMultiHost WithSequentialLaunch()
-        {
-            return this;
-        }
-
-        public VostokMultiHost WithParallelLaunch()
-        {
-            return this;
-        }
-    }
-
-    public class VostokMultiHostSettings
-    {
-        public VostokMultiHostSettings(IVostokApplication app, string appName, Action<IVostokIndividualHostingEnvironmentBuilder> builder)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

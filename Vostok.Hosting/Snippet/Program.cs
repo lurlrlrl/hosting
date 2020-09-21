@@ -10,43 +10,7 @@ namespace Vostok.Hosting.Snippet
 
         private static async Task Main(string[] args)
         {
-            var host = new VostokMultiHost(
-                config =>
-                {
-                    // config
-                    //    .SetupDatacenters()
-                    //    .SetupHerculesSink()
-                    //    .SetupHostExtensions()
-                    //    .SetupServiceLocator()
-                    //    .SetupSystemMetrics()
-                    //    .SetupClusterConfigClient()
-                    //    .SetupZooKeeperClient();
-                },
-                new VostokMultiHostSettings(
-                    new App(),
-                    FirstApp,
-                    config =>
-                    {
-                        // config
-                        //    .SetupConfiguration()
-                        //    .SetupDiagnostics()
-                        //    .SetupLog();
-                    }
-                ),
-                new VostokMultiHostSettings(
-                    new App(),
-                    SecondApp,
-                    config =>
-                    {
-                        // Do not setup
-                    })
-                // We can add as many apps as we want.
-            );
 
-            await host.WithParallelLaunch().RunAsync();
-
-            host.GetApp(FirstApp).Stop();
-            host.GetApp(FirstApp).Run();
         }
     }
 
