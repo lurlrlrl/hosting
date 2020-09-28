@@ -13,9 +13,20 @@ namespace Vostok.Hosting.Snippet
                 new VostokMultiHostSettings(
                     builder => {})
                 );
-
-
-            var vostokHost = new VostokHost(new VostokHostSettings(null, null));
+            
+            // TODO: Configuration shortcuts. For instance:
+            // - Replication
+            // - Configure by default
+            // - SetupForKontur
+            // ...
+            
+            // To discuss: 
+            // 1) ApplicationIdentity instead of name.
+            // 2) Track applications by their ApplicationIdentity, not by name. (Group them by Project, Subproject...)
+            // 3) VostokMultiHost builder individual settings could probably be considered as default for apps, but can be overriden in individual builders.
+            // 4) Why doesn't ApplicationIdentity explicitly belong to VostokHostSettings? (Why is it implicitly created in builder?)
+            // 5) StaticProviders
+            // 6) Automatic ApplicationIdentity setter?
 
             await host.StartAsync();
 
@@ -32,7 +43,7 @@ namespace Vostok.Hosting.Snippet
 
         public Task RunAsync(IVostokHostingEnvironment environment)
         {
-            return Task.Delay(60 * 1000);
+            return Task.CompletedTask;
         }
     }
 }

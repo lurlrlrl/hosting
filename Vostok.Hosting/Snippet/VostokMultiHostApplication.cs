@@ -14,17 +14,15 @@ namespace Vostok.Hosting.Snippet
             vostokHostSettings = settings;
         }
 
-        protected VostokApplicationSettings vostokHostSettings { get; }
-        
-        // protected VostokHostSettings vostokHostSettings { get; }
-        
+        protected VostokApplicationSettings vostokHostSettings { get; } // We could use VostokHostSettings instead of VostokApplicationSettings.
+
         public string Name { get; }
 
-        public CancellationTokenSource ShutdownTokenSource => vostokHost.ShutdownTokenSource;
+        public CancellationTokenSource ShutdownTokenSource => throw new NotImplementedException();
 
-        public VostokApplicationState ApplicationState => vostokHost.ApplicationState;
+        public VostokApplicationState ApplicationState => throw new NotImplementedException();
 
-        public IObservable<VostokApplicationState> OnApplicationStateChanged => vostokHost.OnApplicationStateChanged;
+        public IObservable<VostokApplicationState> OnApplicationStateChanged => throw new NotImplementedException();
         
         public Task<VostokApplicationRunResult> RunAsync() => throw new NotImplementedException();
 

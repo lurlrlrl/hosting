@@ -8,6 +8,7 @@ using Vostok.Hosting.Setup;
 
 namespace Vostok.Hosting.Snippet
 {
+    // VostokHostSettings could be used instead of this class.
     public class VostokApplicationSettings
     {
         public VostokApplicationSettings([NotNull] IVostokApplication application, [NotNull] string applicationName, [NotNull] VostokHostingEnvironmentSetup environmentSetup)
@@ -16,13 +17,11 @@ namespace Vostok.Hosting.Snippet
             ApplicationName = applicationName ?? throw new ArgumentNullException(nameof(applicationName));
             EnvironmentSetup = environmentSetup ?? throw new ArgumentNullException(nameof(environmentSetup));
         }
-        
-        // Application to run.
+
         public IVostokApplication Application { get; set; }
         
         public string ApplicationName { get; set; }
 
-        // Environment setup.
         public VostokHostingEnvironmentSetup EnvironmentSetup { get; set; }
 
         // public bool ConfigureStaticProviders { get; set; } = true;
@@ -37,7 +36,6 @@ namespace Vostok.Hosting.Snippet
 
         public bool BeaconShutdownWaitEnabled { get; set; } = true;
 
-        // Actions that will be executed before initialization.
         public List<Action<IVostokHostingEnvironment>> BeforeInitializeApplication { get; set; } = new List<Action<IVostokHostingEnvironment>>();
     }
 }
