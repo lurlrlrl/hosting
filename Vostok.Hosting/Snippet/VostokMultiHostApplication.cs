@@ -7,9 +7,16 @@ namespace Vostok.Hosting.Snippet
 {
     public class VostokMultiHostApplication
     {
-        private volatile VostokHost vostokHost;
+        private VostokHost vostokHost;
 
-        protected VostokApplicationSettings vostokHostSettings => null;
+        public VostokMultiHostApplication(VostokApplicationSettings settings) // possibly name
+        {
+            vostokHostSettings = settings;
+        }
+
+        protected VostokApplicationSettings vostokHostSettings { get; }
+        
+        // protected VostokHostSettings vostokHostSettings { get; }
         
         public string Name { get; }
 

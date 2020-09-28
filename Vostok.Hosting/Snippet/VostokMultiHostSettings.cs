@@ -23,6 +23,6 @@ namespace Vostok.Hosting.Snippet
         
         public int ThreadPoolTuningMultiplier { get; set; } = 32;
 
-        // public bool WarmupZooKeeper { get; set; } = true;
+        public bool WarmupZooKeeper { get; set; } = true;
     }
 }

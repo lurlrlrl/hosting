@@ -14,7 +14,7 @@ namespace Vostok.Hosting.Snippet
                     builder => {})
                 );
 
-            
+
             var vostokHost = new VostokHost(new VostokHostSettings(null, null));
 
             await host.StartAsync();
