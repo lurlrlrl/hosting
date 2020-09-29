@@ -248,7 +248,7 @@ namespace Vostok.Hosting.Components.Environment
 
             hostExtensionsBuilder.Build(context, vostokHostingEnvironment);
 
-            systemMetricsBuilder.Build(context);
+            systemMetricsBuilder.Build(context, vostokHostingEnvironment);
 
             if (!hasLogs)
             {
@@ -257,10 +257,14 @@ namespace Vostok.Hosting.Components.Environment
                 context.Log = context.Logs.BuildCompositeLog();
             }
 
+            LogLevelMetrics.Measure(context.Logs.LogEventLevelCounterFactory.CreateCounter(), context.Metrics);
+
             if (settings.ConfigureStaticProviders)
                 StaticProvidersHelper.Configure(vostokHostingEnvironment);
 
             context.DiagnosticsHub.HealthTracker.LaunchPeriodicalChecks(vostokHostingEnvironment.ShutdownToken);
+            
+            HealthCheckMetrics.Measure(context.DiagnosticsHub.HealthTracker, context.Metrics);
 
             return vostokHostingEnvironment;
         }
@@ -470,6 +474,12 @@ namespace Vostok.Hosting.Components.Environment
         }
 
         public IVostokHostingEnvironmentBuilder SetupSystemMetrics(Action<SystemMetricsSettings> setup)
+        {
+            systemMetricsBuilder.Customize(setup ?? throw new ArgumentNullException(nameof(setup)));
+            return this;
+        }
+
+        public IVostokHostingEnvironmentBuilder SetupSystemMetrics(Action<SystemMetricsSettings, IVostokHostingEnvironment> setup) 
         {
             systemMetricsBuilder.Customize(setup ?? throw new ArgumentNullException(nameof(setup)));
             return this;
