@@ -13,13 +13,13 @@ namespace Vostok.Hosting.Snippet
             return host.AddApp(settings).RunAsync();
         }
         
-        public static Task<VostokApplicationRunResult> StartApp(this VostokMultiHost host, VostokApplicationSettings settings)
+        public static Task StartApp(this VostokMultiHost host, VostokApplicationSettings settings)
         {
             // Can be ran only after VostokMultiHost start.
             throw new NotImplementedException();
         }
         
-        public static Task<VostokApplicationRunResult> RestartApp(this VostokMultiHost host, string appName)
+        public static Task RestartApp(this VostokMultiHost host, string appName)
         {
             // Can be ran only after VostokMultiHost start.
             throw new NotImplementedException();
@@ -31,25 +31,25 @@ namespace Vostok.Hosting.Snippet
             throw new NotImplementedException();
         }
         
-        public static Task<VostokApplicationRunResult> StartSequentially(this VostokMultiHost host, IEnumerable<VostokApplicationSettings> apps)
+        public static Task StartSequentially(this VostokMultiHost host, IEnumerable<VostokApplicationSettings> apps)
         {
             // Can be ran only after VostokMultiHost start.
             throw new NotImplementedException();
         }
         
-        public static Task<VostokApplicationRunResult> StartSequentially(this VostokMultiHost host, params VostokApplicationSettings[] apps)
+        public static Task StartSequentially(this VostokMultiHost host, params VostokApplicationSettings[] apps)
         {
             // Can be ran only after VostokMultiHost start.
             throw new NotImplementedException();
         }
         
-        public static Task<VostokApplicationRunResult> StartInParallel(this VostokMultiHost host, IEnumerable<VostokApplicationSettings> apps)
+        public static Task StartInParallel(this VostokMultiHost host, IEnumerable<VostokApplicationSettings> apps)
         {
             // Can be ran only after VostokMultiHost start.
             throw new NotImplementedException();
         }
         
-        public static Task<VostokApplicationRunResult> StartInParallel(this VostokMultiHost host, params VostokApplicationSettings[] apps)
+        public static Task StartInParallel(this VostokMultiHost host, params VostokApplicationSettings[] apps)
         {
             // Can be ran only after VostokMultiHost start.
             throw new NotImplementedException();

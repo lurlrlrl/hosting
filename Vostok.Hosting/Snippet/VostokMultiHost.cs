@@ -13,16 +13,16 @@ namespace Vostok.Hosting.Snippet
         }
 
         // Initialize environment, run ALL added applications, stop on all apps stopped. You can't run twice.
-        public Task<Dictionary<string, Task<VostokApplicationRunResult>>> RunAsync() => throw new NotImplementedException();
+        public Task<Dictionary<string, VostokApplicationRunResult>> RunAsync() => throw new NotImplementedException();
 
         // Returns after environment initialization and configuration. You can't start twice (even after being stopped).
         public Task StartAsync() => throw new NotImplementedException();
 
         // Stop all applications and dispose yourself.
-        public Task<Dictionary<string, Task<VostokApplicationRunResult>>> StopAsync() => throw new NotImplementedException();
+        public Task<Dictionary<string, VostokApplicationRunResult>> StopAsync() => throw new NotImplementedException();
         
         // Waits until all launched apps exit.
-        public Task<Dictionary<string, Task<VostokApplicationRunResult>>> WaitForExitAsync() => throw new NotImplementedException();
+        public Task<Dictionary<string, VostokApplicationRunResult>> WaitForExitAsync() => throw new NotImplementedException();
 
         // Get app or null.
         public VostokMultiHostApplication GetApp(string appName) => throw new NotImplementedException();
