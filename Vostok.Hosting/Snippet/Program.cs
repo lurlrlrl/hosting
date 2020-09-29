@@ -28,9 +28,9 @@ namespace Vostok.Hosting.Snippet
             // 5) StaticProviders
             // 6) Automatic ApplicationIdentity setter?
 
-            await host.StartAsync();
+            await host.StartAsync().ConfigureAwait(false);
 
-            await host.RunApp(new VostokApplicationSettings(new App(), "", builder => {}));
+            await host.RunApp(new VostokApplicationSettings(new App(), "", builder => {})).ConfigureAwait(false);
         }
     }
 
